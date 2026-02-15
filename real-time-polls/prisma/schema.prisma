@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  // NOTE: For production, change to "postgresql" and update the URL in .env
+  url      = env("DATABASE_URL")
+}
+
+model Poll {
+  id        String   @id @default(cuid())
+  question  String
+  createdAt DateTime @default(now())
+  options   Option[]
+  votes     Vote[]   @relation("PollVotes")
+}
+
+model Option {
+  id     String @id @default(cuid())
+  text   String
+  pollId String
+  poll   Poll   @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  votes  Vote[] @relation("OptionVotes")
+}
+
+model Vote {
+  id             String   @id @default(cuid())
+  pollId         String
+  optionId       String
+  ipAddress      String
+  userIdentifier String   @default("unknown")
+  createdAt      DateTime @default(now())
+  
+  poll   Poll   @relation("PollVotes", fields: [pollId], references: [id], onDelete: Cascade)
+  option Option @relation("OptionVotes", fields: [optionId], references: [id], onDelete: Cascade)
+
+  @@unique([pollId, userIdentifier], name: "vote_per_user")
+  @@unique([pollId, ipAddress], name: "vote_per_ip")
+}
