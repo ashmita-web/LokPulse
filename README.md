@@ -2,7 +2,7 @@
 
 A full-stack, real-time polling application built with **Next.js**, **Socket.IO**, and **Prisma**. Create a poll, share the link, and watch votes stream in live without refreshing the page.
 
-## ✨ Features
+## Features
 
 - **Real-Time Updates**: Results update instantly for all users via WebSockets.
 - **Fair Voting**: Strict fairness controls to prevent duplicate votes:
@@ -15,7 +15,7 @@ A full-stack, real-time polling application built with **Next.js**, **Socket.IO*
   - Prisma ORM for type-safe database interactions.
   - SQLite (default) for zero-config local development (switchable to PostgreSQL).
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
