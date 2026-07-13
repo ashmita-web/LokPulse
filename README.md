@@ -50,7 +50,7 @@ A full-stack, real-time polling application built with **Next.js**, **Socket.IO*
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### Tech Stack
 - **Frontend**: Next.js 14 (React), TypeScript, Tailwind CSS, Lucide Icons.
@@ -81,7 +81,7 @@ A full-stack, real-time polling application built with **Next.js**, **Socket.IO*
 
 ---
 
-## 🛠️ Deployment
+## Deployment
 
 To deploy this app on a VPS or Node.js compatible host:
 
@@ -96,4 +96,4 @@ To deploy this app on a VPS or Node.js compatible host:
    ```
    This runs `NODE_ENV=production tsx server.ts` (ensure `tsx` is installed or compile `server.ts` to `server.js` using `tsc`).
 
-Enjoy your real-time polls! 🚀
+Enjoy your real-time polls!
